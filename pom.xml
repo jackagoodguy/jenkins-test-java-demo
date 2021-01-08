@@ -17,7 +17,7 @@
   </dependencies>
   <build>
     <plugins>
-     <!-- <plugin>
+      <!--<plugin>
         &lt;!&ndash; Build an executable JAR &ndash;&gt;
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
@@ -47,6 +47,13 @@
           </execution>
         </executions>
         <configuration>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <classpathPrefix>lib/</classpathPrefix>
+              <mainClass>com.mycompany.app.App</mainClass>
+            </manifest>
+          </archive>
           <repository>com.naylor/${project.artifactId}</repository>
           <tag>${project.version}</tag>
           <buildArgs>

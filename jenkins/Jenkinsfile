@@ -20,8 +20,8 @@ pipeline {
             steps {
                 sh 'whoami'
                 sh 'pwd'
-                sh 'chmod -R 777 ./*'
-                sh './jenkins/scripts/deliver.sh'
+                //sh 'chmod -R 777 ./*'
+                //sh './jenkins/scripts/deliver.sh'
             }
         }
     }

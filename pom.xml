@@ -17,8 +17,8 @@
   </dependencies>
   <build>
     <plugins>
-      <plugin>
-        <!-- Build an executable JAR -->
+     <!-- <plugin>
+        &lt;!&ndash; Build an executable JAR &ndash;&gt;
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
         <version>3.0.2</version>
@@ -30,6 +30,28 @@
               <mainClass>com.mycompany.app.App</mainClass>
             </manifest>
           </archive>
+        </configuration>
+      </plugin>-->
+
+      <!--   dockerfile-maven-plugin      -->
+      <plugin>
+        <groupId>com.spotify</groupId>
+        <artifactId>dockerfile-maven-plugin</artifactId>
+        <version>1.3.6</version>
+        <executions>
+          <execution>
+            <id>default</id>
+            <goals>
+              <goal>build</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <repository>com.naylor/${project.artifactId}</repository>
+          <tag>${project.version}</tag>
+          <buildArgs>
+            <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
+          </buildArgs>
         </configuration>
       </plugin>
     </plugins>
